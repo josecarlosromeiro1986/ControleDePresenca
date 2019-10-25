@@ -1,0 +1,61 @@
+tabelas
+
+Participante
+	Nome
+	email
+	cpf
+	rg
+	fone
+	código - pk
+	status
+	data_cadastro
+	data_atualização
+	
+evento
+	id
+	nome
+	descrição
+	data_criação
+	Data_atualização
+	data_evento
+	status
+	qtd_limite
+	fk_participante
+	fk_palestrante
+	gk_palestra
+
+Palestrante
+	id
+	nome
+	email
+	fone
+	data_cadastro
+	data_atualização
+	status
+	
+Controle
+	id
+	data_entrada
+	data_saida
+	fk_participante
+
+Usuario
+	id
+	Nome
+	Login
+	Senha
+	Email
+
+Palestra
+	id
+	tema
+	data_hora
+	descrição
+	qtd_limite
+	fk_palestrante
+	fk_participante
+	
+	
+	
+
+
