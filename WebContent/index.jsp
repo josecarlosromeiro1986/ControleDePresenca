@@ -16,21 +16,38 @@
 	<title>Controle de Presença</title>
 	</head>
 	<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="index.jsp">Sistema Controle de Presença</a>
+		 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		   		 <span class="navbar-toggler-icon"></span>
+		  	</button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		         Menu
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="relatorioPalestra.jsp">Relatorio</a>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+	</nav>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<h3 class="text-center">Sistema de Controle de Presença.</h3>
+					<br>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 	
 					<a href="entrada.jsp"><button type="button" class="btn btn-primary btn-lg btn-block">
 						Cadastrar Entrada do Participante</button></a>
-				</div>
-				<div class="col-md-6">
-	
-					<a href="saida.jsp"><button type="button" class="btn btn-block btn-lg btn-primary">
+						<br>
+						<a href="saida.jsp"><button type="button" class="btn btn-block btn-lg btn-primary">
 						Cadastrar Saída do Participante</button></a>
 				</div>
 			</div>
@@ -48,4 +65,5 @@
 			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 			crossorigin="anonymous"></script>
 	</body>
+	
 </html>

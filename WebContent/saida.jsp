@@ -16,6 +16,24 @@
 <title>Controle de Presença</title>
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="index.jsp">Sistema Controle de Presença</a>
+		 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		   		 <span class="navbar-toggler-icon"></span>
+		  	</button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		         Menu
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="relatorioPalestra.jsp">Relatorio</a>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+	</nav>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -37,23 +55,14 @@
 								<label for="codigo">Código do participante</label> <input
 									name="codigo" type="number" class="form-control" id="codigo"
 									placeholder="Digite  o código">
-							</div>
+									<br>
 							<button type="submit" class="btn btn-primary">Enviar</button>
+							</div>
 						</form>
 					</div>
-					<div class="col-md-2"></div>
-				</div>
 			</div>
 		</div>
 		<br/>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<a href="index.jsp"><button type="button"
-						class="btn btn-primary">Menu</button></a>
-			</div>
-			<div class="col-md-2"></div>
-		</div>		
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
