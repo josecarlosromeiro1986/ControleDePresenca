@@ -3,42 +3,32 @@ package br.com.controledepresenca.mvc.model.crud;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 public class DataSource{
-
-	private static DataSource instance;
+	
+	private String hostname;
+	private String username;
+	private String password;
+	private String database;
 	private Connection connection;
-	private final String URL = "jdbc:mysql://localhost/exemplo_login?useTimezone=true&serverTimezone=UTC";
-	private final String USERNAME = "root";
-	private final String PASSWORD = "";
 
-
-	private DataSource() {
+	public DataSource() {
 
 		try {
-			this.connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-			System.out.println("certo");
-
-		} catch (SQLException e) {
-			 System.err.println("Erro conexao"+e.getMessage());
+			this.hostname = "localhost";
+			this.database = "controle_presenca";
+			this.username = "root";
+			this.password = "";
+			String url = "jdbc:mysql://"+hostname+"/"+database+"?useTimezone=true&serverTimezone=UTC";
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+			this.connection = DriverManager.getConnection(url, this.username, this.password);
+			System.out.println("DataSource - Conectado");
+		} catch (SQLException ex) {
+			System.out.println("ERRO ao Conectar - "+ex.getMessage());
 		}
-
 	}
-
-	public static DataSource getIstance() {
-		if(DataSource.instance == null) {
-			DataSource.instance = new DataSource();			
-		}
-		return DataSource.instance;
-	}
-
+	
 	public Connection getConnection() {
 		return this.connection;
 	}
 	
-	public static void main(String[] args) {
-		
-		DataSource ds = new DataSource();
-		ds.getConnection();
-	}
 }

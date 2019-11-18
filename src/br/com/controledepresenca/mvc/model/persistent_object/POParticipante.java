@@ -1,11 +1,39 @@
 package br.com.controledepresenca.mvc.model.persistent_object;
 
-public class POParticipante {
+import br.com.controledepresenca.mvc.model.persistent_object.AbstractPersistentObject;
+
+public class POParticipante extends AbstractPersistentObject{
+
+	/*
+	+------------+--------------+------+-----+---------+----------------+
+	| Field      | Type         | Null | Key | Default | Extra          |
+	+------------+--------------+------+-----+---------+----------------+
+	| codigo     | int(11)      | NO   | PRI | NULL    | auto_increment |
+	| nome       | varchar(100) | NO   |     | NULL    |                |
+	| cpf        | varchar(11)  | NO   |     | NULL    |                |
+	| fone       | varchar(9)   | NO   |     | NULL    |                |
+	| idPalestra | int(11)      | NO   |     | NULL    |                |
+	+------------+--------------+------+-----+---------+----------------+
+	 */
 
 	protected int codParticipante;
 	protected String nomeParticipante;
+	protected String cpfParticipante;
 	protected String foneParticipante;
-	
+	protected int idPalestra;
+
+	public String getCpfParticipante() {
+		return cpfParticipante;
+	}
+	public void setCpfParticipante(String cpfParticipante) {
+		this.cpfParticipante = cpfParticipante;
+	}
+	public int getIdPalestra() {
+		return idPalestra;
+	}
+	public void setIdPalestra(int idPalestra) {
+		this.idPalestra = idPalestra;
+	}	
 	public int getCodParticipante() {
 		return codParticipante;
 	}
