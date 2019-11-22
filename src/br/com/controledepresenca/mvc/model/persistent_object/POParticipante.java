@@ -21,6 +21,12 @@ public class POParticipante extends AbstractPersistentObject{
 	protected String cpfParticipante;
 	protected String foneParticipante;
 	protected int idPalestra;
+	
+	public POParticipante(int Codigo, String nome)
+	{
+		this.nomeParticipante = nome;
+		this.codParticipante = Codigo;
+	}
 
 	public String getCpfParticipante() {
 		return cpfParticipante;

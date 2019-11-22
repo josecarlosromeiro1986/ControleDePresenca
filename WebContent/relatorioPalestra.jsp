@@ -1,5 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,8 +19,18 @@
 <title>Controle de Presença</title>
 </head>
 <body>
+	 <sql:setDataSource
+        var="myDS"
+        driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/controle_presenca"
+        user="root" password=""
+    />
+     
+    <sql:query var="listUsers"   dataSource="${myDS}">
+        select codigo, nome, idParticipante, data_entrada, data_saida from participante, controle where codigo = idParticipante;
+    </sql:query>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="index.jsp">Sistema Controle de Presença</a>
+		  <a class="navbar-brand" href="index.jsp">Inicio</a>
 		 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		   		 <span class="navbar-toggler-icon"></span>
 		  	</button>
@@ -52,12 +65,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>José</td>
-							<td>1</td>
-							<td>18:40:28</td>
-							<td>18:40:29</td>
-						</tr>						
+					<c:forEach var="user" items="${listUsers.rows}">
+		                <tr>
+		                    <td><c:out value="${user.nome}" /></td>
+		                    <td><c:out value="${user.codigo}" /></td>
+		                    <td><fmt:formatDate value="${user.data_entrada}" pattern="dd-MM-yyyy HH:mm:ss" /></td>
+	 						<td><fmt:formatDate value="${user.data_saida}" pattern="dd-MM-yyyy HH:mm:ss" /></td>
+		                </tr>
+	            	</c:forEach>
 					</tbody>
 				</table>
 			</div>
